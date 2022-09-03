@@ -9,8 +9,10 @@ import { IAdviceSlipResult } from './models/IAdviceSlipResult';
 export class AppComponent {
   title = 'test.sparkfish.angular';
   queryResult!: IAdviceSlipResult;
+  isResultsDirty: boolean = false;
 
   retrieveQueryResult(event: IAdviceSlipResult) {
     this.queryResult = event;
+    this.isResultsDirty = true;
   }
 }
