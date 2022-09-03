@@ -8,6 +8,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SearchComponent } from './interface/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { SingleResultComponent } from './interface/single-result/single-result.component';
+import { ResultsComponent } from './interface/results/results.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SingleResultComponent } from './interface/single-result/single-result.c
     HeaderComponent,
     FooterComponent,
     SearchComponent,
-    SingleResultComponent
+    SingleResultComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
