@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IAdviceSlipMessage } from './models/IAdviceSlipMessage';
 import { IAdviceSlipResult } from './models/IAdviceSlipResult';
 
 @Component({

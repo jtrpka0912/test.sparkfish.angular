@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
+import { IAdviceSlipMessage } from '../../models/IAdviceSlipMessage';
+import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 
 @Component({
   selector: 'app-search',
@@ -8,6 +9,7 @@ import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
 })
 export class SearchComponent implements OnInit {
   @Output() queryResultEvent = new EventEmitter<IAdviceSlipResult>();
+  @Output() queryMessageEvent = new EventEmitter<IAdviceSlipMessage>();
 
   searchQuery: string = '';
 
@@ -22,13 +24,22 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    this.queryResultEvent.emit({
-      total_results: '2',
-      query: this.searchQuery,
-      slips: [
-        {id: '1', advice: 'This is some advice.', date: '2022-09-03' },
-        {id: '2', advice: 'Lorem ipsum', date: '1970-01-01'}
-      ]
-    });
+    if(false) {
+      this.queryResultEvent.emit({
+        total_results: '2',
+        query: this.searchQuery,
+        slips: [
+          {id: '1', advice: 'This is some advice.', date: '2022-09-03' },
+          {id: '2', advice: 'Lorem ipsum', date: '1970-01-01'}
+        ]
+      });
+    } else {
+      this.queryMessageEvent.emit({
+        message: {
+          type: 'notice',
+          text: 'No advice slips found matching that search term.'
+        }
+      })
+    }
   }
 }
