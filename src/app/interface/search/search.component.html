@@ -1,10 +1,22 @@
-<div class="app-search">
+<form 
+  #searchForm="ngForm" 
+  (ngSubmit)="onSubmit()"
+  class="app-search"
+>
   <div class="app-search__input">
     <label for="search" class="form-label">Search</label>
-    <input type="search" class="form-control" id="search" />
+    <input 
+      type="search" 
+      class="form-control" 
+      id="search" 
+      [(ngModel)]="searchQuery"
+      name="search"
+      required 
+      aria-required="true" 
+    />
   </div>
 
   <div class="app-search__button">
-    <button type="submit" class="btn">Enter</button>
+    <button type="submit" class="btn" [disabled]="searchQuery ? false : true">Enter</button>
   </div>
-</div>
+</form>
