@@ -1,0 +1,27 @@
+.app-skeleton-results {
+  &__bar {
+    animation: pulse 1s infinite;
+    margin-bottom: 1rem;
+    max-width: 5rem;
+    background-color: #ddd;
+    border-radius: 0.25rem;
+
+    &--long {
+      max-width: 10rem;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+      background-color: #dedede;
+  }
+
+  50% {
+      background-color: #d1d1d1;
+  }
+
+  100% {
+      background-color: #dedede;
+  }
+}
