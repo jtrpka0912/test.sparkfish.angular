@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { mergeMap, take } from 'rxjs';
 import { AdviceApiService } from 'src/app/services/adviceApi/advice-api.service';
 import { IAdviceSlipMessage } from '../../models/IAdviceSlipMessage';
@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   @Output() queryResultEvent = new EventEmitter<IAdviceSlipResult>();
   @Output() queryMessageEvent = new EventEmitter<IAdviceSlipMessage>();
   @Output() isLoadingEvent = new EventEmitter<boolean>();
+
+  @Input() isLoading: boolean = false;
 
   searchQuery: string = '';
 

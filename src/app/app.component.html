@@ -13,6 +13,7 @@
         (queryResultEvent)="retrieveQueryResult($event)"
         (queryMessageEvent)="retrieveQueryMessage($event)"
         (isLoadingEvent)="retrieveIsLoading($event)"
+        [isLoading]="isLoading"
       ></app-search>
       
       <app-results 
