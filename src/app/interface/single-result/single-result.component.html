@@ -1,12 +1,12 @@
 <article class="app-single-result card">
   <div class="card-header">
-    Han Solo
+    {{ personSwapi.name }}
   </div>
 
   <div class="card-body">
-    <p><strong>Gender:</strong> Male</p>
-    <p><strong>Eye Color:</strong> Purple</p>
-    <p><strong>Hair Color:</strong> Red</p>
-    <p><strong>Weight / Height:</strong> 101 / 167s</p>
+    <p><strong>Gender:</strong> {{ personSwapi.gender }}</p>
+    <p><strong>Eye Color:</strong> {{ personSwapi.eye_color }}</p>
+    <p><strong>Hair Color:</strong> {{ personSwapi.hair_color }}</p>
+    <p><strong>Weight / Height:</strong> {{ personSwapi.mass }} / {{ personSwapi.height }}</p>
   </div>
 </article>

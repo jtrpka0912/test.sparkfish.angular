@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IPersonSwapi } from 'src/app/models/IPersonSwapi';
 
 @Component({
   selector: 'app-single-result',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-result.component.scss']
 })
 export class SingleResultComponent implements OnInit {
+
+  @Input() personSwapi!: IPersonSwapi;
 
   constructor() { }
 

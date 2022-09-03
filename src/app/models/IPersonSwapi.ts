@@ -1,4 +1,4 @@
-export interface IPeopleSwapi {
+export interface IPersonSwapi {
   name: string;
   gender: string;
   eye_color: string;
