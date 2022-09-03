@@ -1,4 +1,4 @@
-<div class="app-results" *ngIf="queryResult && queryResult.slips && queryResult.slips.length > 0"> 
+<div class="app-results" *ngIf="isResultsDirty && queryResult && queryResult.slips.length > 0"> 
   <h3 class="app-results__query">Search Query: {{ queryResult.query }}</h3>
   <h4 class="app-results__count">Result Count: {{ queryResult.total_results }}</h4>
   <div *ngFor="let slip of queryResult.slips">

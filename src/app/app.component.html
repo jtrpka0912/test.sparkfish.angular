@@ -3,8 +3,18 @@
 
   <main class="app-main">
     <div class="container">
-      <app-search (queryResultEvent)="retrieveQueryResult($event)"></app-search>
-      <app-results [queryResult]="queryResult"></app-results>
+      <ngb-alert 
+        *ngIf="queryMessage" 
+        [type]="queryMessage.message.type"
+        (closed)="onCloseAlertHandler()"
+      >{{ queryMessage.message.text }}</ngb-alert>
+      
+      <app-search 
+        (queryResultEvent)="retrieveQueryResult($event)"
+        (queryMessageEvent)="retrieveQueryMessage($event)"
+      ></app-search>
+      
+      <app-results [isResultsDirty]="isResultsDirty" [queryResult]="queryResult"></app-results>
     </div>
   </main>
 

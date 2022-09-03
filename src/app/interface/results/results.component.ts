@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
+import { IAdviceSlipMessage } from 'src/app/models/IAdviceSlipMessage';
+import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 
 @Component({
   selector: 'app-results',
@@ -8,7 +9,8 @@ import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
 })
 export class ResultsComponent implements OnInit {
 
-  @Input() queryResult!: IAdviceSlipResult;
+  @Input() queryResult: IAdviceSlipResult | undefined;
+  @Input() isResultsDirty: boolean = false;
 
   constructor() { }
 
