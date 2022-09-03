@@ -42,8 +42,6 @@ export class SearchComponent implements OnInit {
             (res as IAdviceSlipMessage).message.type = 'warning';
           this.queryMessageEvent.emit(res as IAdviceSlipMessage);
         }
-
-        this.isLoadingEvent.emit(false);
       });
     }, 1000);
   }

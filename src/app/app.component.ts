@@ -18,18 +18,18 @@ export class AppComponent {
     this.queryResult = event;
     this.isResultsDirty = true;
     this.isLoading = false;
-    this.queryMessage = undefined;
   }
 
   retrieveQueryMessage(event: IAdviceSlipMessage) {
     this.queryMessage = event;
     this.isResultsDirty = true;
     this.isLoading = false;
-    this.queryResult = undefined;
   }
 
   retrieveIsLoading(event: boolean) {
     this.isLoading = event;
+    this.queryResult = undefined;
+    this.queryMessage = undefined;
   }
 
   onCloseAlertHandler() {
