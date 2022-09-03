@@ -12,6 +12,7 @@ import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 export class SearchComponent implements OnInit {
   @Output() queryResultEvent = new EventEmitter<IAdviceSlipResult>();
   @Output() queryMessageEvent = new EventEmitter<IAdviceSlipMessage>();
+  @Output() isLoadingEvent = new EventEmitter<boolean>();
 
   searchQuery: string = '';
 
@@ -28,16 +29,22 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const observableAdviceResponse = this.adviceApiService.searchAdvice(this.searchQuery);
+    this.isLoadingEvent.emit(true);
 
-    observableAdviceResponse.subscribe((res: IAdviceSlipResult | IAdviceSlipMessage) => {
-      if(!(res as IAdviceSlipMessage).message) {
-        this.queryResultEvent.emit(res as IAdviceSlipResult);
-      } else {
-        if((res as IAdviceSlipMessage).message.type === 'notice') 
-          (res as IAdviceSlipMessage).message.type = 'warning';
-        this.queryMessageEvent.emit(res as IAdviceSlipMessage);
-      }
-    });
+    setTimeout(() => {
+      const observableAdviceResponse = this.adviceApiService.searchAdvice(this.searchQuery);
+  
+      observableAdviceResponse.subscribe((res: IAdviceSlipResult | IAdviceSlipMessage) => {
+        if(!(res as IAdviceSlipMessage).message) {
+          this.queryResultEvent.emit(res as IAdviceSlipResult);
+        } else {
+          if((res as IAdviceSlipMessage).message.type === 'notice') 
+            (res as IAdviceSlipMessage).message.type = 'warning';
+          this.queryMessageEvent.emit(res as IAdviceSlipMessage);
+        }
+
+        this.isLoadingEvent.emit(false);
+      });
+    }, 1000);
   }
 }
