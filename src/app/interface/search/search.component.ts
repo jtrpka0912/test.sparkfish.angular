@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { mergeMap, take } from 'rxjs';
+import { AdviceApiService } from 'src/app/services/adviceApi/advice-api.service';
 import { IAdviceSlipMessage } from '../../models/IAdviceSlipMessage';
 import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 
@@ -13,7 +15,9 @@ export class SearchComponent implements OnInit {
 
   searchQuery: string = '';
 
-  constructor() { }
+  constructor(
+    private adviceApiService: AdviceApiService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,22 +28,16 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    if(false) {
-      this.queryResultEvent.emit({
-        total_results: '2',
-        query: this.searchQuery,
-        slips: [
-          {id: '1', advice: 'This is some advice.', date: '2022-09-03' },
-          {id: '2', advice: 'Lorem ipsum', date: '1970-01-01'}
-        ]
-      });
-    } else {
-      this.queryMessageEvent.emit({
-        message: {
-          type: 'notice',
-          text: 'No advice slips found matching that search term.'
-        }
-      })
-    }
+    const observableAdviceResponse = this.adviceApiService.searchAdvice(this.searchQuery);
+
+    observableAdviceResponse.subscribe((res: IAdviceSlipResult | IAdviceSlipMessage) => {
+      if(!(res as IAdviceSlipMessage).message) {
+        this.queryResultEvent.emit(res as IAdviceSlipResult);
+      } else {
+        if((res as IAdviceSlipMessage).message.type === 'notice') 
+          (res as IAdviceSlipMessage).message.type = 'warning';
+        this.queryMessageEvent.emit(res as IAdviceSlipMessage);
+      }
+    });
   }
 }
