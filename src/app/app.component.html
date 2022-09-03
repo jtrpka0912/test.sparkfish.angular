@@ -6,6 +6,7 @@
       <ngb-alert 
         *ngIf="queryMessage" 
         [type]="queryMessage.message.type"
+        (closed)="onCloseAlertHandler()"
       >{{ queryMessage.message.text }}</ngb-alert>
       
       <app-search 

@@ -24,4 +24,8 @@ export class AppComponent {
     this.isResultsDirty = true;
     this.queryResult = undefined;
   }
+
+  onCloseAlertHandler() {
+    this.queryMessage = undefined;
+  }
 }
