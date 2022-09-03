@@ -9,7 +9,7 @@ import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 })
 export class ResultsComponent implements OnInit {
 
-  @Input() queryResult!: IAdviceSlipResult;
+  @Input() queryResult: IAdviceSlipResult | undefined;
   @Input() isResultsDirty: boolean = false;
 
   constructor() { }
