@@ -7,13 +7,15 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SearchComponent } from './interface/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { SingleResultComponent } from './interface/single-result/single-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    SingleResultComponent
   ],
   imports: [
     BrowserModule,
