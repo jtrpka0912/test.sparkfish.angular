@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IPersonSwapi } from './models/IPersonSwapi';
 
 @Component({
   selector: 'app-root',
@@ -8,30 +7,4 @@ import { IPersonSwapi } from './models/IPersonSwapi';
 })
 export class AppComponent {
   title = 'test.sparkfish.angular';
-  
-  query?: string;
-  
-  sampleResults: IPersonSwapi[] = [
-    {
-      name: 'Han Solo',
-      gender: 'Male',
-      hair_color: 'Brown',
-      eye_color: 'Hazel',
-      mass: '100',
-      height: '109'
-    },
-    {
-      name: 'Darth Vader',
-      gender: 'Male',
-      hair_color: 'N/A',
-      eye_color: 'Red',
-      mass: '200',
-      height: '120'
-    }
-  ];
-
-  retrieveQueryStringEvent(event: string) {
-    console.info('re', event);
-    this.query = event;
-  }
 }

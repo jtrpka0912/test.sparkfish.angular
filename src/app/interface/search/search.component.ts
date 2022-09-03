@@ -6,8 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  @Output() queryStringEvent = new EventEmitter<string>();
-
   searchQuery: string = '';
 
   constructor() { }
@@ -16,8 +14,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.queryStringEvent.emit(this.searchQuery);
-
     if(!this.searchQuery) {
       console.error('You must enter a search query');
       return;

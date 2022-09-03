@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPersonSwapi } from 'src/app/models/IPersonSwapi';
+import { IAdviceSlip } from 'src/app/models/IAdviceSlip';
 
 @Component({
   selector: 'app-single-result',
@@ -8,7 +8,7 @@ import { IPersonSwapi } from 'src/app/models/IPersonSwapi';
 })
 export class SingleResultComponent implements OnInit {
 
-  @Input() personSwapi!: IPersonSwapi;
+  @Input() adviceSlip!: IAdviceSlip;
 
   constructor() { }
 

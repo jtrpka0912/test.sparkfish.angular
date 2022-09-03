@@ -1,5 +1,5 @@
-<div class="app-results" *ngIf="results.length > 0"> 
-  <div *ngFor="let result of results">
-    <app-single-result [personSwapi]="result"></app-single-result>
+<div class="app-results" *ngIf="results.slips.length > 0"> 
+  <div *ngFor="let slip of results.slips">
+    <app-single-result [adviceSlip]="slip"></app-single-result>
   </div>
 </div>
