@@ -1,5 +1,5 @@
-<div class="app-results" *ngIf="results.slips.length > 0"> 
-  <div *ngFor="let slip of results.slips">
+<div class="app-results" *ngIf="queryResult && queryResult.slips && queryResult.slips.length > 0"> 
+  <div *ngFor="let slip of queryResult.slips">
     <app-single-result [adviceSlip]="slip"></app-single-result>
   </div>
 </div>

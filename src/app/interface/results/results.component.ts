@@ -8,7 +8,7 @@ import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
 })
 export class ResultsComponent implements OnInit {
 
-  @Input() results!: IAdviceSlipResult;
+  @Input() queryResult!: IAdviceSlipResult;
 
   constructor() { }
 

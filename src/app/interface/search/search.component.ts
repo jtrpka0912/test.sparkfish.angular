@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
 
 @Component({
   selector: 'app-search',
@@ -6,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Output() queryResultEvent = new EventEmitter<IAdviceSlipResult>();
+
   searchQuery: string = '';
 
   constructor() { }
@@ -19,6 +22,13 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    console.info('You entered: ', this.searchQuery);
+    this.queryResultEvent.emit({
+      total_results: '2',
+      query: this.searchQuery,
+      slips: [
+        {id: '1', advice: 'This is some advice.', date: '2022-09-03' },
+        {id: '2', advice: 'Lorem ipsum', date: '1970-01-01'}
+      ]
+    });
   }
 }
