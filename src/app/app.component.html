@@ -3,9 +3,8 @@
 
   <main class="app-main">
     <div class="container">
-      <app-search></app-search>
-
-      <app-results [results]="sampleResults"></app-results>
+      <app-search (queryResultEvent)="retrieveQueryResult($event)"></app-search>
+      <app-results [queryResult]="queryResult"></app-results>
     </div>
   </main>
 

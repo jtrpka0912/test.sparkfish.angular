@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPersonSwapi } from 'src/app/models/IPersonSwapi';
+import { IAdviceSlipResult } from 'src/app/models/IAdviceSlipResult';
 
 @Component({
   selector: 'app-results',
@@ -8,7 +8,7 @@ import { IPersonSwapi } from 'src/app/models/IPersonSwapi';
 })
 export class ResultsComponent implements OnInit {
 
-  @Input() results!: IPersonSwapi[];
+  @Input() queryResult!: IAdviceSlipResult;
 
   constructor() { }
 

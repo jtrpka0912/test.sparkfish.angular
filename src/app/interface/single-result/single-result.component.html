@@ -1,12 +1,6 @@
 <article class="app-single-result card">
-  <div class="card-header">
-    {{ personSwapi.name }}
-  </div>
-
   <div class="card-body">
-    <p><strong>Gender:</strong> {{ personSwapi.gender }}</p>
-    <p><strong>Eye Color:</strong> {{ personSwapi.eye_color }}</p>
-    <p><strong>Hair Color:</strong> {{ personSwapi.hair_color }}</p>
-    <p><strong>Weight / Height:</strong> {{ personSwapi.mass }} / {{ personSwapi.height }}</p>
+    <h2 class="app-single-result__advice">{{ adviceSlip.advice }}</h2>
+    <p class="app-single-result__date">Advice was created at {{ adviceSlip.date }}</p>
   </div>
 </article>

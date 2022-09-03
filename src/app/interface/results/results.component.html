@@ -1,5 +1,7 @@
-<div class="app-results" *ngIf="results.length > 0"> 
-  <div *ngFor="let result of results">
-    <app-single-result [personSwapi]="result"></app-single-result>
+<div class="app-results" *ngIf="queryResult && queryResult.slips && queryResult.slips.length > 0"> 
+  <h3 class="app-results__query">Search Query: {{ queryResult.query }}</h3>
+  <h4 class="app-results__count">Result Count: {{ queryResult.total_results }}</h4>
+  <div *ngFor="let slip of queryResult.slips">
+    <app-single-result [adviceSlip]="slip"></app-single-result>
   </div>
 </div>

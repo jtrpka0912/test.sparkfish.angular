@@ -1,3 +1,11 @@
 .app-single-result {
   margin-top: 1rem;
+
+  &__advice {
+    font-size: 1.25rem;
+  }
+
+  &__date {
+    font-size: 0.75rem;
+  }
 }
