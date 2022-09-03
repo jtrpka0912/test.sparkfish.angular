@@ -1,0 +1,11 @@
+.app {
+  &-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  }
+
+  &-main {
+    padding: 1rem 0;
+  }
+}

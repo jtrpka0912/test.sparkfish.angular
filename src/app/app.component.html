@@ -1,1 +1,33 @@
-<div>Hello World</div>
+<div class="app-wrapper">
+  <app-header></app-header>
+
+  <main class="app-main">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <ngb-alert 
+            *ngIf="queryMessage" 
+            [type]="queryMessage.message.type"
+            (closed)="onCloseAlertHandler()"
+          >{{ queryMessage.message.text }}</ngb-alert>
+          
+          <app-search 
+            (queryResultEvent)="retrieveQueryResult($event)"
+            (queryMessageEvent)="retrieveQueryMessage($event)"
+            (isLoadingEvent)="retrieveIsLoading($event)"
+            [isLoading]="isLoading"
+          ></app-search>
+          
+          <app-results 
+            [isResultsDirty]="isResultsDirty" 
+            [queryResult]="queryResult"
+          ></app-results>
+    
+          <app-skeleton-results [isLoading]="isLoading"></app-skeleton-results>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div><!--.wrapper-->

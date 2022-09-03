@@ -1,0 +1,12 @@
+.app-results {
+  margin-top: 2rem;
+  border-radius: 1rem;
+
+  &__query {
+    font-size: 1.0rem;
+  }
+
+  &__count {
+    font-size: 0.75rem;
+  }
+}

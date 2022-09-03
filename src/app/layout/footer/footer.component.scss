@@ -1,0 +1,15 @@
+.app-footer {
+  padding: 1rem 0;
+  background-color: #1b4c5a;
+  color: #fff;
+  text-align: center;
+
+  &__primary-text {
+    padding-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  &__disclaimer {
+    font-size: 0.75rem;
+  }
+}
