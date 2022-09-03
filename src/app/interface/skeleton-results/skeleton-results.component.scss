@@ -1,0 +1,40 @@
+.app-skeleton-results {
+  margin-top: 2rem;
+}
+
+.app-skeleton-result {
+  margin-bottom: 1rem;
+  
+  &__bar {
+    animation: pulse 1s infinite;
+    max-width: 6rem;
+    height: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+
+    &--long {
+      max-width: 12rem;
+    }
+
+    &:last-of-type { 
+      margin-bottom: 0; 
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+      background-color: #dedede;
+      border-color: #dedede;
+  }
+
+  50% {
+      background-color: #d1d1d1;
+      border-color: #d1d1d1;
+  }
+
+  100% {
+      background-color: #dedede;
+      border-color: #dedede;
+  }
+}

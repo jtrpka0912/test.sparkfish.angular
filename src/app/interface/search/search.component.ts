@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { mergeMap, take } from 'rxjs';
 import { AdviceApiService } from 'src/app/services/adviceApi/advice-api.service';
 import { IAdviceSlipMessage } from '../../models/IAdviceSlipMessage';
@@ -12,6 +12,9 @@ import { IAdviceSlipResult } from '../../models/IAdviceSlipResult';
 export class SearchComponent implements OnInit {
   @Output() queryResultEvent = new EventEmitter<IAdviceSlipResult>();
   @Output() queryMessageEvent = new EventEmitter<IAdviceSlipMessage>();
+  @Output() isLoadingEvent = new EventEmitter<boolean>();
+
+  @Input() isLoading: boolean = false;
 
   searchQuery: string = '';
 
@@ -28,16 +31,20 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const observableAdviceResponse = this.adviceApiService.searchAdvice(this.searchQuery);
+    this.isLoadingEvent.emit(true);
 
-    observableAdviceResponse.subscribe((res: IAdviceSlipResult | IAdviceSlipMessage) => {
-      if(!(res as IAdviceSlipMessage).message) {
-        this.queryResultEvent.emit(res as IAdviceSlipResult);
-      } else {
-        if((res as IAdviceSlipMessage).message.type === 'notice') 
-          (res as IAdviceSlipMessage).message.type = 'warning';
-        this.queryMessageEvent.emit(res as IAdviceSlipMessage);
-      }
-    });
+    setTimeout(() => {
+      const observableAdviceResponse = this.adviceApiService.searchAdvice(this.searchQuery);
+  
+      observableAdviceResponse.subscribe((res: IAdviceSlipResult | IAdviceSlipMessage) => {
+        if(!(res as IAdviceSlipMessage).message) {
+          this.queryResultEvent.emit(res as IAdviceSlipResult);
+        } else {
+          if((res as IAdviceSlipMessage).message.type === 'notice') 
+            (res as IAdviceSlipMessage).message.type = 'warning';
+          this.queryMessageEvent.emit(res as IAdviceSlipMessage);
+        }
+      });
+    }, 1000);
   }
 }

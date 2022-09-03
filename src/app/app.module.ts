@@ -10,6 +10,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SearchComponent } from './interface/search/search.component';
 import { SingleResultComponent } from './interface/single-result/single-result.component';
 import { ResultsComponent } from './interface/results/results.component';
+import { SkeletonResultsComponent } from './interface/skeleton-results/skeleton-results.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResultsComponent } from './interface/results/results.component';
     FooterComponent,
     SearchComponent,
     SingleResultComponent,
-    ResultsComponent
+    ResultsComponent,
+    SkeletonResultsComponent
   ],
   imports: [
     BrowserModule,

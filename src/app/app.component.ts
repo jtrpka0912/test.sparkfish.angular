@@ -12,17 +12,24 @@ export class AppComponent {
   queryResult: IAdviceSlipResult | undefined;
   queryMessage: IAdviceSlipMessage | undefined;
   isResultsDirty: boolean = false;
+  isLoading: boolean = false;
 
   retrieveQueryResult(event: IAdviceSlipResult) {
     this.queryResult = event;
     this.isResultsDirty = true;
-    this.queryMessage = undefined;
+    this.isLoading = false;
   }
 
   retrieveQueryMessage(event: IAdviceSlipMessage) {
     this.queryMessage = event;
     this.isResultsDirty = true;
+    this.isLoading = false;
+  }
+
+  retrieveIsLoading(event: boolean) {
+    this.isLoading = event;
     this.queryResult = undefined;
+    this.queryMessage = undefined;
   }
 
   onCloseAlertHandler() {

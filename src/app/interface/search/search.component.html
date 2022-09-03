@@ -17,6 +17,6 @@
   </div>
 
   <div class="app-search__button">
-    <button type="submit" class="btn" [disabled]="searchQuery ? false : true">Enter</button>
+    <button type="submit" class="btn" [disabled]="!searchQuery || isLoading">Enter</button>
   </div>
 </form>

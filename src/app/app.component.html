@@ -12,9 +12,16 @@
       <app-search 
         (queryResultEvent)="retrieveQueryResult($event)"
         (queryMessageEvent)="retrieveQueryMessage($event)"
+        (isLoadingEvent)="retrieveIsLoading($event)"
+        [isLoading]="isLoading"
       ></app-search>
       
-      <app-results [isResultsDirty]="isResultsDirty" [queryResult]="queryResult"></app-results>
+      <app-results 
+        [isResultsDirty]="isResultsDirty" 
+        [queryResult]="queryResult"
+      ></app-results>
+
+      <app-skeleton-results [isLoading]="isLoading"></app-skeleton-results>
     </div>
   </main>
 
