@@ -1,0 +1,5 @@
+<div class="app-results" *ngIf="results.length > 0"> 
+  <div *ngFor="let result of results">
+    <app-single-result [personSwapi]="result"></app-single-result>
+  </div>
+</div>
