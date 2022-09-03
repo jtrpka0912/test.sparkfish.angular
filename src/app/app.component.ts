@@ -9,6 +9,8 @@ import { IPersonSwapi } from './models/IPersonSwapi';
 export class AppComponent {
   title = 'test.sparkfish.angular';
   
+  query?: string;
+  
   sampleResults: IPersonSwapi[] = [
     {
       name: 'Han Solo',
@@ -27,4 +29,9 @@ export class AppComponent {
       height: '120'
     }
   ];
+
+  retrieveQueryStringEvent(event: string) {
+    console.info('re', event);
+    this.query = event;
+  }
 }
